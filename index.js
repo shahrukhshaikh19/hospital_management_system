@@ -137,4 +137,11 @@ app.get('/',(req,res)=>{
     res.json({patients});
 })
 
+app.post('/',(req,res)=>{
+  const id = req.body.id;
+  const updatedPatients = patients.filter((elem,i)=>{
+    return elem.id !== id;
+  });
+  res.json({patients:updatedPatients});
+})
 app.listen(port);
